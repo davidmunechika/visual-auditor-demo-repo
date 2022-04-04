@@ -137,6 +137,8 @@ class SliceFinder:
 
         with open(filename, 'w') as f:
             json.dump(data, f)
+        
+        return json.dumps(data)
 
     def compute_overlapping_samples(self, recommendations, filename):
         sampleDict = {}
@@ -164,6 +166,8 @@ class SliceFinder:
 
         with open(filename, "w") as outfile:
             json.dump(sampleDict, outfile)
+
+        return json.dumps(sampleDict)
     
     def count_common_samples(self, filename):
         commonSamples = {}
@@ -186,6 +190,8 @@ class SliceFinder:
 
         with open(filename, "w") as outfile:
             json.dump(commonSamples, outfile)
+        
+        return json.dumps(commonSamples)
 
     def slicing(self):
         ''' Generate base slices '''
@@ -446,8 +452,7 @@ def _make_html():
 def visualize():
     """
     Render Visual Auditor in the output cell.
-    """
-    # html_str = _make_html()   
+    """  
     html_file = codecs.open("bundle.html", 'r')
     html_str = html_file.read()
 
